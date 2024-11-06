@@ -274,13 +274,13 @@ class SheetDownloader(object):
                 len(results["sheets"]), self.out_dir
             )
         )
-        sheet_name_no_xlsx = sheet_name[:-5]
+        sheet_name_no_xlsx = sheet_name[:-5] if sheet_name.endswith(".xlsx") else sheet_name
 
         # Validate sheet name
-        if sheet_name_no_xlsx + ".xlsx" != sheet_name:
-            raise Exception(
-                f"[ERROR] Sheet does not have expected name with '.xlsx' extension: {sheet_name}"
-            )
+#        if sheet_name_no_xlsx + ".xlsx" != sheet_name:
+#            raise Exception(
+#                f"[ERROR] Sheet does not have expected name with '.xlsx' extension: {sheet_name}"
+#            )
 
         prod_def_dir = os.path.join(parent_folder, "product-definitions")
         tsv_dir = os.path.join(prod_def_dir, "tsv", sheet_name_no_xlsx)
