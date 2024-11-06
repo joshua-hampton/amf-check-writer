@@ -25,7 +25,7 @@ class InstrumentsCV(BaseCV):
             cv[ns][instr_id] = {
                 "instrument_id": instr_id,
                 "previous_instrument_ids": prev_ids,
-                "description": row["Descriptor"],
-                "instrument_pid": row["PID"] or ""
+                "description": row["Descriptor"]#,
+#                "instrument_pid": row["PID"] or ""
             }
         return cv
