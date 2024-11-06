@@ -109,7 +109,7 @@ class SpreadsheetHandler(object):
         if not expected_common_files.issubset(json_files):
             diff = expected_common_files.difference(json_files)
             if not version_number == "vocabs":
-                if float(version_number[1:]) <= 2.0 or not diff == set(('AMF_ncas_instrument.json', 'AMF_community_instrument.json')):
+                if (float(version_number[1:]) <= 2.0 and len(diff) != 0) or (float(version_number[1:]) >= 2.1 and not diff == set(('AMF_ncas_instrument.json', 'AMF_community_instrument.json', 'AMF_platform.json'))):
                     raise ValueError(f"[ERROR] The following expected JSON controlled "
                                  f"vocabulary JSON files were not created: {diff}.")
 
