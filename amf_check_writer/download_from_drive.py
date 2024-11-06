@@ -202,7 +202,7 @@ class SheetDownloader(object):
                     print(f"[INFO] Found and using '{fname}'")
                 else:
                     print(
-                        f"[INFO] Skipping folder with '{fname}' as we want version '{self.version}' or vocab '{self.vocab}'"
+                        f"[INFO] Skipping folder with '{fname}' as we want {f'version `{self.version}`' if self.version else f'vocab `{self.vocab}`'}"
                     )
                     continue
 
